@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sass/mine.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <header id="headerlogo">
+        <nav>
+          <div class="container d-flex">
+            <div class="col mt-4 col1">
+              <div class="icon d-flex align-items-center">
+                  <i class="bi bi-facebook"></i>
+                  <i class="bi bi-twitter ms-4"></i>
+                  <i class="bi bi-globe ms-4"></i>
+              </div>
+            </div>
+          
+            <div class="col col2 mt-4 text-end">
+              <div class="image text-center">
+                  <img src="http://www.themezaa.com/html/pofo/images/logo@2x.png" alt="" id="logo" style="height:4vh; display: block;">
+                  <img src="http://www.themezaa.com/html/pofo/images/logo-white.png" alt="" id="logo1" style="display: none;">
+              </div>
+            </div>
+          
+              <div class="col mt-4 text-end">
+                <input type="checkbox" id="active">
+                <label for="active" class="menu-btn"><i class="bi bi-list"></i></label>
+                <div class="wrapper d-flex">
+                <div class="img text-start mt-5 ms-5"><img src="http://www.themezaa.com/html/pofo/images/logo-white@2x.png" alt="" style="height: 4vh;"></div>
+                   <div class="listbox1 ">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Elements</a></li>
+                        </ul>
+                   </div>
+                   <div class="listbox2">
+                    <ul>
+                        <li><a href="#">Pages</a></li>
+                        <li><a href="#">Blogs</a></li>
+                        <li><a href="#">Features</a></li>
+                     </ul>
+                   </div>
+                   <div class="listbox3 text-start" style="margin-top:200px;">
+                    <a href="#" style="color: red;font-size:22px;text-decoration: none;">London Based Creative <br>Studio</a><br>
+                        <a href="#" style="color:#6f6f6f;font-size:18px;text-decoration: none;">301 The Greenhouse,<br>
+                          Custard Factory, London,<br> E2 8DY.<br>
+                          Call - +44 (0) 123 456 7890<br>
+                          Email - <span style="color: white;">info@domain.com</span></a>
+                        <div class="div ms-2"></div>
+                        <div class="div2 d-flex align-items-center mt-3">
+                          <i class="bi bi-facebook ms-2"></i>
+                          <i class="bi bi-twitter ms-3"></i>
+                          <i class="bi bi-google ms-3"></i>
+                          <i class="bi bi-globe ms-3"></i>
+                          <i class="bi bi-linkedin ms-3"></i>
+                      </div>
+                   </div>
+                </div>
+                <div id="theme-btn" class="bi bi-moon"></div>
+                <!-- <button class="btn-toggle">Toggle Dark-Mode</button> -->
+              </div>
+              <button class="btn" id="langBtn">AZ</button>
+          </div>
+        </nav>
+      </header>
+    
+      <section>
+        <div class="container">
+          <div class="row d-flex text-center">
+            <div class="col-12 col-md-3 first">
+              <img src="http://www.themezaa.com/html/pofo/images/homepage-option18-image.png" id="colin"alt="">
+              <img src="/assets/WhatsApp Image 2022-12-12 at 12.33.03.jpeg" alt="" id="colin1" style="display: none;">
+            </div>
+    
+            <div class="col-12 col-md-9 second">
+              <div class="box1">
+                <p class="item">I'm <span style="font-weight:600;" id="smith">colin smith</span></p> 
+                <h6></h6>
+              </div>
+    
+              <div class="box2">
+                <p class="item">DESIGNER & FRONTEND DEVELOPER</p>
+              </div>
+    
+            </div>
+    
+          </div>
+          <!-- <div class="buy">
+            <div class="shop shadow p-3 mb-5 bg-body rounded"><i class="bi bi-cart3"></i></div>
+            <div class="letter shadow p-3 mb-5 bg-body rounded"><i class="bi bi-envelope"></i></div>
+          </div> -->
+         
+        </div>
+       </section>
+       <script>
+        
+let logo = document.getElementById('logo');
+let logo1 = document.getElementById('logo1')
+let colin = document.getElementById('colin')
+let colin1 = document.getElementById('colin1')
+// let header = document.getElementById('headerlogo')
+let darkImageURL = "http://www.themezaa.com/html/pofo/images/logo-white@2x.png";
+let lightImageURL = "http://www.themezaa.com/html/pofo/images/logo@2x.png";
+// let header = "http://www.themezaa.com/html/pofo/images/homepage-option18-banner.jpg"
+
+
+const themeBtn = document.getElementById("theme-btn");
+
+if(localStorage.getItem('theme')===null){
+  localStorage.setItem('theme','light-theme')
+}else{
+  const myFunc =()=>{
+    console.log('a');
+    if(document.body.classList.contains('dark-theme')){
+      document.body.classList.remove('dark-theme');
+      document.body.classList.add('light-theme');
+      logo.style.display = 'block';
+      logo1.style.display = 'none';
+      colin.style.display = 'block';
+      colin1.style.display = 'none';
+      localStorage.setItem('mode1','block');
+      localStorage.setItem('mode2','none');
+      localStorage.setItem('mode3','block');
+      localStorage.setItem('mode4','none');
+
+      localStorage.setItem('theme','light-theme')
+    }else{
+      document.body.classList.remove('light-theme');
+      document.body.classList.add('dark-theme');
+      logo.style.display = 'none';
+      logo1.style.display = 'block';
+      colin.style.display = 'none';
+      colin1.style.display = 'block';
+      localStorage.setItem('mode1','none');
+      localStorage.setItem('mode2','block');
+      localStorage.setItem('mode3','none');
+      localStorage.setItem('mode4','block');
+
+      localStorage.setItem('theme','dark-theme');
+    }
+  }
+  document.body.classList.add(localStorage.getItem('theme'));
+
+  themeBtn.onclick = myFunc;
+}
+
+logo.style.display = localStorage.getItem('mode1');
+logo1.style.display = localStorage.getItem('mode2');
+colin.style.display = localStorage.getItem('mode3');
+colin1.style.display = localStorage.getItem('mode4');
+
+// if(localStorage.getItem("theme")===null){
+//   localStorage.setItem("theme","light-theme")
+// } else{
+//   themeBtn.onclick = () => {
+//     themeBtn.classList.toggle("bi-sun");
+//       if (themeBtn.classList.contains("bi-sun")) {
+//         document.body.classList.add("changeTheme");
+//         logo.src = darkImageURL;
+//         colin.style.display="none"
+//         colin1.style.display="block"
+//         header.style.background="none"
+//         localStorage.setItem("mode1", "darkImageURL");
+//         localStorage.setItem("mode2", "none");
+//        localStorage.setItem("mode3","block");
+//       localStorage.setItem("mode4","none");
+         
+//          localStorage.setItem("theme","light-theme")
+        
+//       } else {
+//         document.body.classList.remove("changeTheme");
+//         logo.src = lightImageURL;
+//         colin.style.display="block"
+//         colin1.style.display="none"
+//         header.style.background="block"
+//         localStorage.setItem("mode1", "lightImageURL");
+//      localStorage.setItem("mode2", "block");
+//        localStorage.setItem("mode3","none");
+//      localStorage.setItem("mode4","block");
+//         localStorage.setItem("theme","dark-theme")
+//       }
+//     }
+//     body.classList.add(localStorage.getItem("theme"));
+// }
+// if (localStorage.getItem("theme") === "dark-theme") {
+//     document.body.classList.add('changeTheme');
+// }
+
+// logo.style.display = localStorage.getItem("mode1");
+// colin.style.display = localStorage.getItem("mode2");
+// colin1.style.display = localStorage.getItem("mode3");
+// header.style.display = localStorage.getItem("mode4");
+
+       </script>
+      <script src="js/mine.js"></script>
+</body>
+</html>
